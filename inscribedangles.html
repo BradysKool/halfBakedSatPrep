@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Inscribed Angles</title>
+  <link rel="stylesheet" href="style.css"> <!-- Link to your existing CSS -->
+  <style>
+    /* Inline styles for this page specifically (or you can put them in style.css) */
+    
+    body {
+      background-color: #000; /* black theme if consistent with your site */
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .sidebar {
+      /* your existing sidebar styles */
+      width: 200px;
+      background-color: #111;
+      float: left;
+      height: 100vh; /* full screen height if desired */
+    }
+
+    .content {
+      margin-left: 200px; /* space for sidebar */
+      padding: 20px;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    .diagram {
+      max-width: 500px;
+      display: block;
+      margin: 1rem 0;
+      border: 2px solid #444;
+    }
+
+    .problem-box {
+      background-color: #222;
+      border: 2px solid #444;
+      border-radius: 4px;
+      padding: 1rem;
+      margin-top: 2rem;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .problem-box h2 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    .problem-box p {
+      margin-bottom: 1rem;
+    }
+
+    .answer-input {
+      width: 100px;
+      padding: 0.25rem;
+      margin-right: 0.5rem;
+      border-radius: 4px;
+      border: 1px solid #999;
+    }
+
+    .submit-btn {
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      border: none;
+      background-color: #444;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background-color: #555;
+    }
+
+    .result-message {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar (reuse your existing sidebar code) -->
+  <nav class="sidebar">
+    <ul>
+      <li><a href="index.html">Welcome</a></li>
+      <li class="dropdown">
+        <a href="#">About</a>
+        <ul class="dropdown-menu">
+          <li><a href="page1.html">Why this</a></li>
+          <li><a href="reviews.html">Rewiews</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Math</a>
+        <ul class="dropdown-menu">
+          <li><a href="page2.html">Top 6 Favorite Formulas</a></li>
+          <li><a href="page3.html">Dishonorble mentions</a></li>
+        </ul>
+      </li>
+      <li><a href="english.html">English</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main content area -->
+  <div class="content">
+    <h1>Inscribed Angles</h1>
+    <p class="page-text">
+      An <strong>inscribed angle</strong> in a circle is an angle whose vertex is 
+      on the circle itself and whose sides each intersect the circle in exactly one other 
+      point. A key theorem states:
+    </p>
+    <p class="page-text" style="font-size: 1.1rem; font-weight: bold;">
+      The measure of an inscribed angle is <em>half</em> the measure of its intercepted arc.
+    </p>
+
+    <!-- Diagram (placeholder - replace with your actual circle diagram) -->
+    <img src="images/inscribedAnglesProblem.jpg" alt="Inscribed Angle Diagram" class="diagram">
+
+    <p class="page-text">
+      In other words, if an inscribed angle intercepts an arc with a measure of 
+      \( \theta \) degrees, the angle itself measures \( \frac{\theta}{2} \) degrees.
+    </p>
+
+    <!-- Practice Problem -->
+    <div class="problem-box">
+      <h2>Practice Problem</h2>
+      <p>
+       That illegible angle is 25 btw
+      </p>
+
+      <!-- Input and Submit Button -->
+      <input type="number" id="answerInput" class="answer-input" placeholder="Angle...">
+      <button class="submit-btn" onclick="checkAnswer()">Submit</button>
+      
+      <!-- Result message goes here -->
+      <div id="resultMessage" class="result-message"></div>
+    </div>
+  </div>
+
+  <!-- JavaScript to check the answer -->
+  <script>
+    function checkAnswer() {
+      // The measure of an inscribed angle = 1/2 * (intercepted arc measure).
+      // For an arc of 80°, the inscribed angle = 80/2 = 40.
+      const correctAnswer = 50;
+      const userValue = parseFloat(document.getElementById('answerInput').value);
+      const resultElement = document.getElementById('resultMessage');
+
+      if (isNaN(userValue)) {
+        resultElement.textContent = "Please enter a valid number.";
+        resultElement.style.color = "yellow";
+        return;
+      }
+
+      if (userValue === correctAnswer) {
+        resultElement.textContent = "Correct! Great job.";
+        resultElement.style.color = "lime";
+      } else {
+        resultElement.textContent = "Not even close";
+        resultElement.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
